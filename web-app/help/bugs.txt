@@ -1,0 +1,4 @@
+2012-12-30
+
+- When deleting and leaving the data model field, you can re-create the field in form, but not in the table.
+- When updating a referenced table the combo boxes of the referencing fields are not updated.

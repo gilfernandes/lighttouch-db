@@ -1,0 +1,15 @@
+<project basedir="." name="buildHelp" default="buildHelp">
+    <target name="buildHelp">
+        <zip destfile="help.zip">
+            <fileset dir="web-app/help" />
+        </zip>
+    </target>
+	
+	<target name="extractSvn">
+		<mkdir dir="../nosvnFormCreator" />
+		<copy todir="../nosvnFormCreator" includeEmptyDirs="false">
+			<fileset dir="../formcreator"/>
+		</copy>
+	</target>
+	
+</project>

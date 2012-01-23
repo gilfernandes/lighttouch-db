@@ -1,0 +1,1 @@
+grails-debug run-app

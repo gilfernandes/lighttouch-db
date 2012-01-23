@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <title>@project_name@</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" href="css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8" />
+        <script type="text/javascript" src="js/jquery1.7.1.js">
+        </script>
+        <script type="text/javascript" src="js/includes.js">
+        </script>
+        <script type="text/javascript" src="js/main.js">
+        </script>
+    </head>
+
+    <body class="body">
+        <script type="text/javascript">
+        includeLib.tableOfContents();
+        </script>
+        <script type="text/javascript">
+        includeLib.header();
+        </script>
+
+        <table id="colset" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td id="col1">
+                    <div id="main" class="corner-all">
+
+                        <span id='toggle-col1' class="toggle">(<a href="#" onclick="localToggle(); return false;">Quick Reference</a>)</span>
+
+                        <script type="text/javascript">
+                            includeLib.projectInfo();
+                        </script>
+
+                        
+                        <div id="table-of-content">
+                            <h2>Table of Contents</h2>
+                            
+                            <script type="text/javascript">
+                                includeLib.introTableOfContents();
+                            </script>
+                            
+                            <script type="text/javascript">
+                                includeLib.gettingStarted();
+                            </script>
+                            
+                            <div class="toc-item" style="margin-left:0px"><a href="bugs.txt"><strong>3</strong><span>Known Issues</span></a></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </td>
+
+            </tr>
+        </table>
+
+        <script type="text/javascript">
+        includeLib.footer();
+        </script>
+
+
+
+<script type="text/javascript" src="./js/docs.js"></script>
+
+    <script type="text/javascript"> 
+
+function detectLastFrame() {
+   var thisF = this.window;
+   var allF = parent.top.frames;
+   return allF[allF.length - 1] == thisF;                   
+}
+
+// Only inject the following code if this is a normal page or the last
+// frame of a frameset.
+// if (parent.top.frames.length == 0 || detectLastFrame()) {
+//     // Add the Google Analytics code.
+//     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+//     document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+
+//     try{
+//         var pageTracker = _gat._getTracker("UA-2728886-12");
+//         pageTracker._trackPageview();
+//     } catch(err) {}
+
+//     // Inject the SpringSource search widget too.
+//     document.write(unescape("%3Cscript src='http://search.grails.org/widget/searchtool.js' type='text/javascript'%3E%3C/script%3E"));
+// }
+</script> 
+</body>
+
+</html>

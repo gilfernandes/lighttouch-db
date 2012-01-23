@@ -1,0 +1,15 @@
+<projectDescription>
+  <name>formcreator</name>
+  <comment>A custom grails project. NO_M2ECLIPSE_SUPPORT: Project files created with the maven-eclipse-plugin are not supported in M2Eclipse.</comment>
+  <projects/>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>com.springsource.sts.grails.core.nature</nature>
+    <nature>org.eclipse.jdt.groovy.core.groovyNature</nature>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+  </natures>
+</projectDescription>
