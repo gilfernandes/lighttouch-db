@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <title>@project_name@</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" href="css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8" />
+        <script type="text/javascript" src="js/jquery1.7.1.js">
+        </script>
+        <script type="text/javascript" src="js/includes.js">
+        </script>
+        <script type="text/javascript" src="js/main.js">
+        </script>
+    </head>
+
+    <body class="body">
+        <script type="text/javascript">
+        includeLib.tableOfContents();
+        </script>
+        <script type="text/javascript">
+        includeLib.header();
+        </script>
+
+        <table id="colset" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td id="col1">
+                    <div id="main" class="corner-all">
+
+                        <div class="toc-item next-right"><a href="getting_started.html"><strong>2</strong><span>Getting Started</span> &gt;&gt;</a></div>
+
+                        <span id='toggle-col1' class="toggle">(<a href="#" onclick="localToggle(); return false;">Quick Reference</a>)</span>
+
+                        <script type="text/javascript">
+                            includeLib.projectInfo();
+                        </script>
+
+                        <div id="table-of-content">
+                            <h2>Table of Contents</h2>
+                            <script type="text/javascript">
+                                includeLib.introTableOfContents();
+                            </script>
+                        </div>
+                        <h1 id="introduction"><a name="introduction">1 Introduction</a></h1>
+                        <h2 id="whatIs"><a name="whatis">1.1 What is @project_name@?</a></h2>
+                        @project_name@ is a web based tool with which you can create your own online databases. This tool contains two main components:
+                        <ul>
+                            <li><strong>designer</strong> - component with which you can create your <strong>database model</strong>, <strong>form</strong>, <strong>table views</strong> and your <strong>applications</strong>.</li>
+                            <li><strong>workbench</strong> - component with which you can perform CRUD operations on the applications you have defined.</li>
+                        </ul>
+                        <h2 id="designer"><a name="designer">1.1.1. Designer</a></h2>
+                        The <strong>designer</strong> has <strong>two main design modules</strong> and an <strong>optional user management module</strong>:
+                        <ul>
+                            <li><strong>The Quick Designer</strong> - which you can use to create using drag and drop your <strong>datamodels, forms and table views</strong>. 
+                                It contains the following sub-components:
+                                <ul>
+                                    <li>a form widget table</li>
+                                    <li>a data model property table</li>
+                                    <li>a central form design section</li> 
+                                    <li>a form widget properties editor and a table view tree editor.</li>
+                                </ul>
+                                Here is a screenshot of the designer:
+                                <p>
+                                    <img src="img/quick_designer.png" alt="Quick Designer" title="Quick Designer"/>
+                                </p>
+                            </li>
+                            <li><strong>The Application Designer</strong> - which you can use to create bundles of modules (i.e. a data module with specific views) using drag and drop. 
+                                The Application Designer contains the following sub-components:
+                                <ul>
+                                    <li>a datamodel table</li>
+                                    <li>a tile grid for re-ordering the modules</li>
+                                    <li>view re-order table (a table which can be used to re-order the views vertically)</li> 
+                                    <li>overall structure tree (a tree which displays the overall structure of your application)</li>
+                                </ul>
+                                Here is a screenshot of the Application Designer:
+                                <p>
+                                    <img src="img/application_designer.png" alt="Application Designer" title="Application Designer"/>
+                                </p>
+                            </li>
+                            <li><strong>User Management Module</strong> - this module is <strong>only accessible to system administrators</strong> and allows to view, add, modify user attributes and roles and delete users.
+                            This module contains a search form for users and forms for editing the user properties and roles. This GUI is heavily based on the 
+                            <a href="http://grails.org/plugin/spring-security-ui" target="_blank">Grails Spring UI plugin</a>.
+                            Here are screenshots of the Application Designer:
+                                <p>
+                                    <img src="img/user_management.png" alt="User Management Search" title="User Management Search"/>
+                                </p>
+                                <br />
+                                <p>
+                                    <img src="img/user_management_edit.png" alt="User Management Edit" title="User Management Edit"/>
+                                </p>
+                            </li>
+                        </ul>
+                        <h2 id="workbench"><a name="workbench">1.1.2. Workbench</a></h2>
+                        The <strong>workbench</strong> allows users to perform CRUD (Create, Read, Update, Delete) operations on the defined data models using the created views.
+                        The user can switch between different applications and inside of each application the user can switch between the data models.
+                        <br />
+                        Currently only two types of views are visible on the data models:
+                        <ul>
+                            <li><strong>Form Views</strong> - with which the user can create new records
+                                <p>
+                                    <img src="img/workbench_form.png" alt="Workbench Form" title="Workbench Form"/>
+                                </p>
+                            </li>
+                            <li><strong>Table Views</strong> - with which the user can view (includes filtering), update and delete records. 
+                                <p>
+                                    <img src="img/workbench_table.png" alt="Workbench Table" title="Workbench Table"/>
+                                </p>
+                            </li>
+                        </ul>
+                        <h2 id="roles"><a name="roles">1.1.3. User Roles</a></h2>
+                        There are currently two roles on the system:
+                        <ul>
+                            <li><strong>Administrator</strong> - users with this role can create, change and delete views and applications of all users</li>
+                            <li><strong>User</strong> - users with this role can create, change and delete views and applications only their own applications</li>
+                        </ul>
+                        <h2 id="persistence"><a name="roles">1.1.4. Persistence</a></h2>
+                        <p>
+                            We are using at present a <strong>relational (Postgres)</strong> and a <strong>NoSQL (MongoDB 2.0.2)</strong> database 
+                            for storing the data. Event though we are using Postgres, MySQL or any other relational database can be used.
+                        </p>
+                        <p>
+                            One of the ideas of the project was to code the data storage part against a simple persistence 
+                            interface which could be implemented on the basis of any relational or NoSQL database. I.e. MongoDB can be replaced 
+                            in the future by another implementation of the same persistence interface.
+                        </p>
+                        <p>
+                            These are the responsibilities of the two DB's store in the project:
+                        </p>
+                        <ul>
+                            <li><strong>Relational Database (Postgres 8)</strong> - all designer related elements are stored here. This includes data models, form, table views and applications.</li>
+                            <li><strong>MongoDB 2.0.2</strong> - stores the actual data contained in the applications. I.e. all workbench related elements are stored here.</li>
+                        </ul>
+                        <h2 id="communication"><a name="communication">1.1.5. Server Client Communication</a></h2>
+                        <p>
+                            This project relies heavily on <strong>Ajax</strong>. I.e. as soon as the designer or the workbench are loaded all interactions between the web browser and the 
+                            server side are done via Ajax. <a href="http://json.org" target="_blank">JSON</a> is the preferred data exchange format.
+                        </p>
+                        <h2 id="webframeworks"><a name="webframeworks">1.1.6. Web Frameworks</a></h2>
+                        <p>
+                            This project is using <a href="http://grails.org" target="_blank">Grails 2.0.0</a> as its server side framework. On the client side the GUI is rendered 
+                            using the Javascript library <a href="http://www.smartclient.com/" target="_blank">SmartClient 8.1</a>.
+                        </p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+        <script type="text/javascript">
+        includeLib.footer();
+        </script>
+
+
+
+<script type="text/javascript" src="./js/docs.js"></script>
+
+    <script type="text/javascript"> 
+
+function detectLastFrame() {
+   var thisF = this.window;
+   var allF = parent.top.frames;
+   return allF[allF.length - 1] == thisF;                   
+}
+
+// Only inject the following code if this is a normal page or the last
+// frame of a frameset.
+// if (parent.top.frames.length == 0 || detectLastFrame()) {
+//     // Add the Google Analytics code.
+//     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+//     document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+
+//     try{
+//         var pageTracker = _gat._getTracker("UA-2728886-12");
+//         pageTracker._trackPageview();
+//     } catch(err) {}
+
+//     // Inject the SpringSource search widget too.
+//     document.write(unescape("%3Cscript src='http://search.grails.org/widget/searchtool.js' type='text/javascript'%3E%3C/script%3E"));
+// }
+</script> 
+</body>
+
+</html>

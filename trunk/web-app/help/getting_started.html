@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>@project_name@</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
+    <script type="text/javascript" src="js/jquery1.7.1.js">
+    </script>
+    <script type="text/javascript" src="js/includes.js">
+    </script>
+    <script type="text/javascript" src="js/main.js">
+    </script>
+</head>
+
+<body class="body">
+    <script type="text/javascript">
+        includeLib.tableOfContents();
+    </script>
+    <script type="text/javascript">
+        includeLib.header();
+    </script>
+
+
+<table id="colset" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td id="col1">
+            <div id="main" class="corner-all">
+
+                
+                <div class="toc-item prev-left"><a href="introduction.html">&lt;&lt; <strong>1</strong><span>Introduction</span></a></div>
+
+                <div class="toc-item next-right"><a href="conf.html"><strong>3</strong><span>Configuration</span> &gt;&gt;</a></div>
+
+                <script type="text/javascript">
+                    includeLib.projectInfo();
+                </script>
+                
+                <div id="table-of-content">
+                    <h2>Table of Contents</h2>
+                    <script type="text/javascript">
+                        includeLib.gettingStarted();
+                    </script>
+                </div>
+                
+                <h1 id="gettingStarted"><a name="2. Getting Started">2 Getting Started</a></h1>
+                This section describes how to install the binary distribution you can download from this site.
+                
+                <h2 id="requirements">2.1 Installation Requirements</h2>
+                Before installing @project_name@ you will as a minimum need a 
+                <strong><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">Java Development Kit (JDK)</a></strong>
+                installed version 1.6 or above and environment variable called <code>JAVA_HOME</code> pointing to the location of this installation. 
+                On some platforms (for example OS X) the Java installation is automatically detected. 
+                However in many cases you will want to manually configure the location of Java. For example:<p class="paragraph"/>
+                <div class="code"><pre>export JAVA_HOME=/Library/Java/Home
+export PATH=<span class="java&#45;quote">"$PATH:$JAVA_HOME/bin"</span></pre></div>
+                <p class="paragraph"/>
+                Under Windows you will need to set <code>JAVA_HOME</code> as a system variable via the control panel.
+                <p class="paragraph"/>
+                Furthermore you will need a <strong>servlet container</strong>, like e.g. Tomcat which you can download from here: 
+                <a href="http://tomcat.apache.org/download-70.cgi" target="_blank">http://tomcat.apache.org/download-70.cgi</a>.
+                <p class="paragraph"/>
+                You will need to install a <strong>relational database</strong> like Postgres 8 which you can download from <a href="http://www.postgresql.org/download/" target="_blank">http://www.postgresql.org/download/</a>.
+                But please note: MySQL should also do the job as well as other relational databases.
+                <p>On Ubuntu you can install Postgres by running this command:</p>
+                <div class="code"><pre>apt-get install postgresql</pre></div>
+                <p class="paragraph"/>
+                
+                Last, but not least you will need to install <strong>MongoDB</strong>.
+                <p>On Ubuntu you can install MongoDB by running this command:</p>
+                <div class="code"><pre>apt-get install mongodb</pre></div>
+                <a name="2.1 Downloading and Installing"><!-- Legacy link --></a>
+                <h2 id="downloadingAndInstalling">2.2 Downloading and Installing</h2>
+                The first step to getting up and running with @project_name@ is to install the distribution. To do so follow these steps:
+                <ul class="star">
+                    <li><a href="#" target="blank">Download</a> a binary distribution of @project_name@ and extract the resulting war file to a location of your choice</li>
+                    <li>Assuming that you are using Tomcat - stop Tomcat if it is running and copy the binary distribution (the war file) into your $TOMCAT_HOME/webapps folder</li>
+                    <li>Start MongoDB, if it is not yet started</li>
+                    <li>Start Postgres or the relational database, if it is not yet started</li>
+                    <li>Access the Postgres command line client or the client for your relational database. 
+                        Create a database user with the name "<strong>crm</strong>".
+                        In Postgres you could use the command:
+                        <div class="code"><pre>
+CREATE ROLE crm LOGIN
+  ENCRYPTED PASSWORD 'md50bd62933f8bdafcee4bad3d5b6e64f01'
+  NOSUPERUSER INHERIT CREATEDB NOCREATEROLE;</pre></div>
+                        The unencrypted password is: "crm4all". Perhaps not a bad idea to change the password later on.
+                    </li>
+                    <li>Create a database with the name "<strong>crm</strong>". Note: this name can be changed, but then you will need to change the configuration in the application. 
+                    <br />In Postgres you can do this by executing the following commands on the psql prompt:
+                        <div class="code"><pre>
+CREATE DATABASE crm
+  WITH OWNER = crm
+       ENCODING = 'UTF8'
+       CONNECTION LIMIT = -1;</pre></div>
+                    </li>
+                    <li>Assuming that you are using Tomcat - start Tomcat now</li>
+                    <li>Now try to access the application on your browser by opening this URL: <a href="http://localhost:8080/formcreator">http://localhost:8080/formcreator</a></li>
+                    <li>If everything went well you should see a login dialogue:
+                        <img src="img/login_screen.png" target="_blank" title="Login Screen" alt="Login Screen"/>
+                    </li>
+                    <li>The default user names and passwords are:
+                        <table width="300px">
+                            <tr>
+                                <th>User</th>
+                                <th>Password</th>
+                                <th>Role</th>
+                            </tr>
+                            <tr>
+                                <td>admin</td>
+                                <td>admin</td>
+                                <td>Administrator</td>
+                            </tr>
+                            <tr>
+                                <td>user</td>
+                                <td>user</td>
+                                <td>Normal User</td>
+                            </tr>
+                        </table>
+                    </li>
+               </ul>
+               
+               <h1 id="creatingAnApplication"><a name="creatingAnApplication">2.3 Creating an Application</a></h1>
+               Creating useful applications is the main goal of this software. In order to create a useful application a user will need to execute the following steps:
+               <ul>
+                   <li>Create at least one data model, with an associated form and table view with the "<strong>Quick Designer</strong>":
+                       <ol>
+                           <li>Open the "<strong>Quick Designer</strong>"
+                               <p><img src="img/quick_designer.png" alt="Quick Designer" title="Quick Designer" /></p>
+                           </li>
+                           <li>Drag fields from the "<strong>Form Elements</strong>" table and drop these on the <strong>central table</strong>.</li>
+                           <li>Click on the fields that you have dropped on the central table to change their properties. This can be achieved by changing the content of the 
+                           fields in the "<strong>Form Element Properties</strong>" table and pressing the "<strong>Submit</strong>" button.</li>
+                           <li>Optionally you can also edit the data model properties by clicking on one of the rows in the "<strong>Data Elements</strong>" table and changing 
+                           the content of the corresponding fields.</li>
+                           <li>Optionally you can also edit the table view properties by expanding one of the nodes of the "<strong>Table Column Properties</strong>" and 
+                               changing the values of the subnodes. This will change the way the table view is rendered.</li>
+                           <li>After having done your changes you can save the form by clicking on the "<strong>File</strong>" drop-down and pressing the "<strong>Save</strong>" button.</li>
+                       </ol>
+                   </li>
+                   <li>Create at least one application using the "<strong>Application Designer</strong>":
+                       <ol>
+                           <li>In order to use the "<strong>Application Designer</strong>" click on the <strong>"Application Designer" tab</strong>.
+                               <p><img src="img/application_designer.png" alt="Application Designer" title="Application Designer" /></p>
+                           </li>
+                           <li>Drag from the left most table the model you would like to include in the application and drop it on the strip on the top. 
+                               Repeat this operation for all the models you want to include in the application.</li>
+                           <li>On the central table you can re-order the views per drag-and-drop. This will affect the vertical order in which the views are later on displayed
+                               in the workbench. 
+                           </li>
+                           <li>
+                               Once you are done you click on the <strong>File</strong> drop-down menu and press "<strong>Save</strong>".
+                           </li>
+                       </ol>
+                   </li>
+               </ul>
+               <h1 id="runningAnApplication"><a name="runningAnApplication">2.4 Running an Application</a></h1>
+               <p>Once you have created an application you can start using it by clicking starting the workbench. If you are
+               in the designer you can click on the "<strong>Switch to Workbench</strong>" link.</p>
+               <p>Once you open the workbench you can click on the rows on the left table to open the form or 
+               table views.</p>
+               <p>If your application has multiple models you can navigate to the corresponding model
+               using the tabs.</p>
+               <div style="text-align: center"><img src="img/workbench_form.png" alt="Workbench" title="Workbench" /></div>
+               <div style="clear:both;margin-top:15px;"></div>
+                
+               <div class="toc-item prev-left"><a href="introduction.html">&lt;&lt; <strong>1</strong><span>Introduction</span></a></div>
+                
+                <div style="clear:both"></div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+<script type="text/javascript">
+    includeLib.footer();
+</script>
+
+<script type="text/javascript" src="../js/docs.js"></script>
+
+<script type="text/javascript"> 
+
+function detectLastFrame() {
+   var thisF = this.window;
+   var allF = parent.top.frames;
+   return allF[allF.length - 1] == thisF;                   
+}
+
+// Only inject the following code if this is a normal page or the last
+// frame of a frameset.
+if (parent.top.frames.length == 0 || detectLastFrame()) {
+    // Add the Google Analytics code.
+//     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+//     document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+
+//     try{
+//         var pageTracker = _gat._getTracker("UA-2728886-12");
+//         pageTracker._trackPageview();
+//     } catch(err) {}
+
+    // Inject the SpringSource search widget too.
+//     document.write(unescape("%3Cscript src='http://search.grails.org/widget/searchtool.js' type='text/javascript'%3E%3C/script%3E"));
+}
+</script> 
+</body>
+
+</html>
