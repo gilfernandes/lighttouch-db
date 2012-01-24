@@ -34,7 +34,7 @@ var includeLib = {
         document.writeln('\
             <div id="header">\
                 <div class="images clearfix">\
-                    <span id="logo"><a href="#" target="_blank"><img alt="@project_name@ Logo" title="@project_name@" src="./img/logo.png" border="0"/></a></span>\
+                    <span id="logo"><a href="#" target="_blank"><img alt="LightTouch DB Logo" title="LightTouch DB" src="./img/logo.png" border="0"/></a></span>\
                     <span id="sponsor"><a href="http://www.onepointltd.com/" target="_blank"><img alt="Onepoint Logo" title="One Point Consulting LTD - Enabling Open and Collaborative Enterprises"\
                         src="http://www.onepointltd.com/images/logo_small.gif" border="0"/></a></span>\
                 </div>\
@@ -48,7 +48,7 @@ var includeLib = {
      */
     projectInfo: function() {
         document.writeln('<div class="project">\
-                <h1>@project_name@ - Reference Documentation</h1>\
+                <h1>LightTouch DB - Reference Documentation</h1>\
                 <p><strong>Authors:</strong> Alexander Polev, Gil Fernandes</p>\
                 <p><strong>Version:</strong> 0.1</p>\
             </div>\
@@ -60,7 +60,7 @@ var includeLib = {
      */
     introTableOfContents: function() {
         document.writeln('<div class="toc-item tocLevel0"><a href="introduction.html#introduction"><strong>1</strong><span>Introduction</span></a></div>\
-                <div class="toc-item tocLevel1"><a href="introduction.html#whatis"><strong>1.1</strong><span>What is @project_name@?</span></a></div>\
+                <div class="toc-item tocLevel1"><a href="introduction.html#whatis"><strong>1.1</strong><span>What is LightTouch DB?</span></a></div>\
                 <div class="toc-item tocLevel2"><a href="introduction.html#designer"><strong>1.1.1</strong><span>Designer</span></a></div>\
                 <div class="toc-item tocLevel2"><a href="introduction.html#workbench"><strong>1.1.2</strong><span>Workbench</span></a></div>\
                 <div class="toc-item tocLevel2"><a href="introduction.html#roles"><strong>1.1.3</strong><span>User Roles</span></a></div>\
