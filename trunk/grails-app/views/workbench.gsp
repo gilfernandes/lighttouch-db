@@ -17,6 +17,12 @@
         <script language="Javascript" type="text/javascript" src="js/string.js">
         <!-- -->
         </script>
+        <script language="Javascript" type="text/javascript" src="js/util/screenSize.js">
+        <!-- -->
+        </script>
+        <script language="Javascript" type="text/javascript" src="js/session/keepAlive.js">
+        <!-- -->
+        </script>
         <script language="Javascript" type="text/javascript" src="js/components/DeleteButton.js">
         <!-- -->
         </script>

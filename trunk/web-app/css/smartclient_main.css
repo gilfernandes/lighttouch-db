@@ -183,3 +183,17 @@ a.endEditRollover:hover {
     width:170px;
     float:left
 }
+
+/* Warning Related */
+
+.warning {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.exampleTitle {
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    background-color: #ffffd0;
+}
