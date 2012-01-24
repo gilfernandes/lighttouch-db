@@ -18,6 +18,7 @@ grails uninstall-plugin dynamic-domain-class
 
 grails create-controller com.consultinglimited.crm.generator
 grails create-controller com.consultinglimited.crm.list
+grails create-controller com.consultinglimited.crm.keepAlive
 
 # Install Spring Security
 grails install-plugin spring-security-core
@@ -39,3 +40,5 @@ grails generate-all com.consultinglimited.crm.Module
 
 # Note: due to a bug in the Spring Security UI Plugin you need to change grails.plugins.springsecurity.ui.AbstractS2UiController.groovy
 # and remove the line "def grailsApplication" for this plugin to work.
+
+grails create-controller com.consultinglimited.crm.keepalive
