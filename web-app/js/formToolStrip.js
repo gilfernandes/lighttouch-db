@@ -617,7 +617,7 @@ isc.Menu.create({
             fields: fields
         });
         
-        openDefinitionList.remove
+        // openDefinitionList.remove
 
         isc.OpenButton.create({
             ID: "formComposerListButton",
@@ -830,15 +830,6 @@ isc.StripLabel.create({
 });
 
 /**
- * The switch to designer button.
- */
-isc.ToolStripButton.create({
-    ID: "switchToWorkbenchButton",
-    click: "location.href='workbench.gsp'",
-    title: "Switch to Workbench"
-});
-
-/**
  * The main tool strip.
  */
 isc.ToolStrip.create({
@@ -852,7 +843,7 @@ isc.ToolStrip.create({
      */
     activateDesignMembers: function() {
         this.setMembers(
-            [menuButtonFile, previewMenuButton, menuButtonAdvanced, isc.Canvas.create({width: 30}), switchToWorkbenchButton, isc.Canvas.create({width: "*"}), 
+            [menuButtonFile, previewMenuButton, menuButtonAdvanced, isc.Canvas.create({width: 30}), isc.Canvas.create({width: "*"}), 
                  dataModelNameLabel, formNameLabel, tableModelNameLabel, logoutButton]
         );
         this.setHeight(this.defaultHeight);
