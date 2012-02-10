@@ -21,14 +21,14 @@ isc.BaseRestDataSource.create({
     fields:[
         {name:"id", primaryKey:true, canEdit:false, hidden: true },
         {name:"formDefinitionId", hidden: true },
-        {name:"dataModelName", title: "DM Name", canEdit:false},
+        {name:"dataModelName", title: "DM Name", canEdit: true},
         {name:"dataModelDescription", title: "DM Description", hidden: true},
-        {name:"dataModelData", title: "DM Data", canEdit:false, hidden: true},
-        {name:"formDefinitionName", title: "FD Name", canEdit:false},
+        {name:"dataModelData", title: "DM Data", canEdit: false, hidden: true},
+        {name:"formDefinitionName", title: "FD Name", canEdit: true},
         {name:"formDefinitionDescription", title: "FD Description", hidden: true},
         {name:"formDefinitionFormData", canEdit:false, hidden: true},
         {name:"tableDefinitionId", canEdit:false, hidden: true},
-        {name:"tableDefinitionName", canEdit:false},
+        {name:"tableDefinitionName", canEdit:true},
         {name:"tableDefinitionDescription", canEdit:false, hidden: true},
         {name:"tableDefinitionData", canEdit:false, hidden: true},
         {name:"userName", canEdit:false, hidden: securityInfo.isAdmin ? true : false}

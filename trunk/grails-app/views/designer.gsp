@@ -18,6 +18,12 @@
         <script language="Javascript" type="text/javascript" src="js/util/screenSize.js">
         <!-- -->
         </script>
+        <script language="Javascript" type="text/javascript" src="js/components/zenbox.js">
+        <!-- -->
+        </script>
+        <script language="Javascript" type="text/javascript">
+            zenbox.createBox(false);
+        </script>
         <script language="Javascript" type="text/javascript" src="js/session/keepAlive.js">
         <!-- -->
         </script>

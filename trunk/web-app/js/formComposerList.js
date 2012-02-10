@@ -407,21 +407,17 @@ isc.FormTileGrid.create({
         }
         else if (sourceWidget.ID == "dataModelGrid" && dropRecords && dropRecords.length > 0) {
             this.dropRecord = dropRecords[0]; // we just allow one record at a time.
+            var widgetTypeMap = new Array();
+            widgetTypeMap[dataType.boolean] = editorType.checkbox;
+            widgetTypeMap[dataType.date] = editorType.date;
+            widgetTypeMap[dataType.time] = editorType.time;
+            widgetTypeMap[dataType.reference] = editorType.reference;
+            widgetTypeMap[dataType.staticText] = editorType.heading1;
             for(var i = 0, l = dropRecords.length; i < l; i++) {
-                switch(dropRecords[i].type) {
-                    case dataType.boolean:
-                        dropRecords[i].widgetType = editorType.checkbox;
-                        this.Super("recordDrop", arguments);
-                        return;
-                    case dataType.date:
-                        dropRecords[i].widgetType = editorType.date;
-                        this.Super("recordDrop", arguments);
-                        return;
-                    default:
-                        dropRecords[i].widgetType = editorType.text;
-                        this.Super("recordDrop", arguments);
-                        return;
-                }
+                var editType = widgetTypeMap[dropRecords[i].type];
+                dropRecords[i].widgetType = typeof(editType) == "undefined" ? editorType.text : editType;
+                this.Super("recordDrop", arguments);
+                return;
             }
         }
         else {

@@ -116,6 +116,10 @@ isc.DataSource.create({
                     }
                     else {
                         updatedRecord.dataModelForeignKey = dataRecordId;
+                        // If necessary re-construct the table entries.
+                        if(formComposerList.dropRecord.type != dataType.staticText) {
+                            this.createTableModelEntry(updatedRecord.title, dataRecordId);
+                        }
                     }
                 }
             }

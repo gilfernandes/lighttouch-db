@@ -46,15 +46,6 @@ isc.DynamicForm.create({
 });
 
 /**
- * The switch to designer button.
- */
-isc.ToolStripButton.create({
-    ID: "switchToDesignerButton",
-    click: "location.href='designer.gsp'",
-    title: "Switch to Designer"
-});
-
-/**
  * The main tool strip.
  */
 isc.ToolStrip.create({
@@ -68,6 +59,6 @@ isc.ToolStrip.create({
      */
     init: function() {
         this.Super("init", arguments);
-        this.setMembers([applicationComboForm, switchToDesignerButton, isc.Canvas.create({width: "*"}), logoutButton]);
+        this.setMembers([applicationComboForm, isc.Canvas.create({width: "*"}), logoutButton]);
     }
 });

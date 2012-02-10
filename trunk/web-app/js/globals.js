@@ -20,7 +20,7 @@ var editorType = {
     text: "text",
     textarea: "textArea",
     checkbox: "checkbox",
-    heading1: "text",
+    heading1: "h1",
     combobox: "combobox",
     date: "date",
     time: "time",
