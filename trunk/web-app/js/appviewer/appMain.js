@@ -17,9 +17,6 @@ var appFunctions = {
             title = dataObj.defaultModule.name + " - " + title;
             selectedId = dataObj.defaultModule.id
         }
-        else {
-            // console.log(dataObj);
-        }
         titleLabel.setContentsTxt(title);
         document.title = title;
         var appList = dataObj.moduleListResult.rows;

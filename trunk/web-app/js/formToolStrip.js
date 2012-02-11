@@ -861,7 +861,7 @@ isc.ToolStrip.create({
      * Activates all buttons needed for the application designer.
      */
     activateModuleDesignMembers: function() {
-        this.setMembers([menuButtonFileMD, menuButtonAdvancedMD, isc.Canvas.create({width: 30}), switchToWorkbenchButton, isc.Canvas.create({width: "*"}), moduleNameLabelMD, logoutButton]);
+        this.setMembers([menuButtonFileMD, menuButtonAdvancedMD, isc.Canvas.create({width: 30}), isc.Canvas.create({width: "*"}), moduleNameLabelMD, logoutButton]);
         menuButtonAdvancedMD.show();
         menuButtonFileMD.show();
         moduleNameLabelMD.show();

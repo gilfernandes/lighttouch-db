@@ -1,3 +1,28 @@
+<%@ page language="java" import="javax.servlet.http.Cookie"%>
+<%
+// This piece of code redirects the user to the last access page.
+String cookieName = "lastAccessed";
+Cookie[] cookies = request.getCookies();
+Cookie lastAccessCookie = null;
+if (cookies != null)
+{
+    for (int i = 0; i < cookies.length; i++) 
+    {
+        if (cookieName.equals(cookies [i].getName()))
+        {
+            lastAccessCookie = cookies[i];
+            break;
+        }
+    }
+    if(lastAccessCookie != null) {
+        String value = lastAccessCookie.getValue();
+        if(value != null) {
+            response.sendRedirect(value + ".gsp");
+        }
+    }
+}
+
+%>
 <html>
     <head>
         <title><g:message code="main.title" default="Designer"/></title>
@@ -12,7 +37,6 @@
     </head>
     <body>
         <script type="text/javascript">
-        
 isc.Label.create({
     ID: "designerLink",
     width:240, padding:10,

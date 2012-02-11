@@ -1,3 +1,9 @@
+<%@ page language="java" import="javax.servlet.http.Cookie"%>
+<%
+Cookie cookie = new Cookie ("lastAccessed", "designer");
+cookie.setMaxAge(365 * 24 * 60 * 60);
+response.addCookie(cookie);
+%>
 <html>
     <head>
         <title><g:message code="main.title" default="Designer"/></title>
@@ -22,7 +28,7 @@
         <!-- -->
         </script>
         <script language="Javascript" type="text/javascript">
-            zenbox.createBox(false);
+            zenbox.createBox(false, securityInfo.user);
         </script>
         <script language="Javascript" type="text/javascript" src="js/session/keepAlive.js">
         <!-- -->
