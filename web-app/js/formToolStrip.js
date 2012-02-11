@@ -853,7 +853,7 @@ isc.ToolStrip.create({
      * Deactivates all buttons and controls in this tool strip, except the logout button.
      */
     deactivateAllMembers: function() {
-        this.setMembers([switchToWorkbenchButton, isc.Canvas.create({width: "*"}), logoutButton]);
+        this.setMembers([isc.Canvas.create({width: "*"}), logoutButton]);
         this.setHeight(this.defaultHeight);
     },
     
