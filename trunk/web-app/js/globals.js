@@ -46,7 +46,7 @@ var dataType = {
  * The current form name.
  */
 var currentForm = {
-    blankFormName: "&lt;No form name specified&gt;",
+    blankFormName: "&lt;Unknown form model&gt;",
     name: "",
     description: "",
     id: -1,
@@ -57,7 +57,7 @@ var currentForm = {
  * The current form name.
  */
 var currentData = {
-    blankDataName: "&lt;No data model specified&gt;",
+    blankDataName: "&lt;Unknown data model&gt;",
     name: "",
     description: "",
     id: -1,
@@ -68,7 +68,7 @@ var currentData = {
  * The current form name.
  */
 var currentTable = {
-    blankDataName: "&lt;No table model specified&gt;",
+    blankDataName: "&lt;Unknown table model&gt;",
     name: "",
     description: "",
     id: -1,
