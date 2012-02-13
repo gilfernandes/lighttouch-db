@@ -27,6 +27,13 @@ var DataContainer = function(formJson, dataJson, tableJson) {
     this.tableJson = tableJson;
 }
 
+/**
+ * Collection of integers representing types of post save actions.
+ */
+var postSaveActions = {
+    OPEN_PREVIEW_FORM: 1
+}
+
 
 var previewOperations = {
 
@@ -171,8 +178,9 @@ isc.Menu.create({
      * @param doDeploy If {@code true} then the data is not only stored, but it is also deployed in Grails.
      * @param doBackup If {@code true} the data will be backed up and also reset in case the 
      * user closes the window.
+     * @param postSaveAction Integer which determines which action to execute after save.
      */
-    handleSave: function(showJson, doDeploy, doBackup) {
+    handleSave: function(showJson, doDeploy, doBackup, postSaveAction) {
         if(!currentForm.name) {
             var self = this;
             isc.JsonFormWindow.create({
@@ -265,7 +273,7 @@ isc.Menu.create({
         }
         else {
             var dataContainer = this.persistFormDefinition(showJson);
-            this.saveCall(dataContainer, doDeploy);
+            this.saveCall(dataContainer, doDeploy, postSaveAction);
         }
     },
 
@@ -274,8 +282,9 @@ isc.Menu.create({
      * or updates the existing.
      * @param dataContainer The data container.
      * @param doDeploy If {@code true} this data model is to be deployed, else not.
+     * @param postSaveAction Integer which determines which action to execute after save.
      */
-    saveCall: function(dataContainer, doDeploy) {
+    saveCall: function(dataContainer, doDeploy, postSaveAction) {
         var params = { 
             formId: currentForm.id,
             formName: currentForm.name,
@@ -306,7 +315,7 @@ isc.Menu.create({
                 params: params, 
                 httpMethod: "POST",
                 useSimpleHttp: true,
-                callback: "fileMenu.saveCallback(data)",
+                callback: "fileMenu.saveCallback(data" + (typeof(postSaveAction) != "undefined" ? "," + postSaveAction : "") + ")",
                 actionURL: "formDefinition/updateJson"
             });
         }
@@ -314,8 +323,11 @@ isc.Menu.create({
     
     /**
      * Analyses the return code and displays a message to the user.
+     * @param data The data from the request.
+     * @param postSaveAction If defined, then an action is executed after the body of this function
+     * in case of success.
      */
-    saveCallback: function (data) {
+    saveCallback: function (data, postSaveAction) {
         var dataObj = eval('(' + data + ')');
         if(dataObj.response.status == 0) {
             currentForm.id = dataObj.object.formDefinitionId;
@@ -324,12 +336,23 @@ isc.Menu.create({
             dataModelNameLabel.setContents(currentData.name + ' (' + currentData.id + ')');
             formNameLabel.setContents(currentForm.name + ' (' + currentForm.id + ')');
             tableModelNameLabel.setContents(currentTable.name + ' (' + currentTable.id + ')');
-            isc.say("Data and form definitions saved to the database.",
-                function() {
-                    if(typeof (firstSaveWindow) != 'undefined') firstSaveWindow.hide();
-                }
-            );
             openDefinitionDs.fetchOptionData(); // Refresh the options used to create references.
+            console.log("postSaveAction: " + postSaveAction);
+            if(postSaveAction) {
+                switch(postSaveAction) {
+                    case postSaveActions.OPEN_PREVIEW_FORM:
+                        console.log("Opening preview form ...");
+                        previewOperations.openFormDefinition(currentForm.id);
+                        break;
+                }
+            }
+            else {
+               isc.say("Data and form definitions saved to the database.",
+                    function() {
+                        if(typeof (firstSaveWindow) != 'undefined') firstSaveWindow.hide();
+                    }
+               );
+            }
         }
         else {
             isc.warn("An unexpected error occurred. Status Code: " + data.status);
@@ -769,9 +792,9 @@ isc.Menu.create({
     showShadow: true,
     shadowDepth: 10,
     data: [
-        {title: "View Currently Saved Form ...", click: function() {
+        {title: "Preview Form ...", click: function() {
                 if(currentForm.id != -1) {
-                    previewOperations.openFormDefinition(currentForm.id);
+                    fileMenu.handleSave(false, false, false, postSaveActions.OPEN_PREVIEW_FORM);
                 }
                 else {
                     isc.warn("Please open a form definition to view the saved form.")
