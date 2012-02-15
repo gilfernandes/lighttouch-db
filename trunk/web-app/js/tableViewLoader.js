@@ -56,6 +56,9 @@ var tablePropertiesTreeFields = [
             return !(record.isBoolean || record.isFolder);
         },
         
+        /**
+         * Turns on the value field according to the configuration of the record.
+         */
         cellChanged: function (record, newValue, oldValue, rowNum, colNum, grid) {
             if(!(record.isBoolean || record.isFolder)) {
                 if(newValue == true && oldValue == false) {
