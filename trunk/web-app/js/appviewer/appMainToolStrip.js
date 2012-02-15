@@ -7,6 +7,7 @@ isc.DynamicForm.create({
     ID:"applicationComboForm",
     width: 350,
     margin: 3,
+    lastAccessedAppCookie: "lastAccessedApp",
     fields : [
     {
         ID: "applicationCombo", name: "application", title: "Application", type: "select", 
@@ -38,8 +39,13 @@ isc.DynamicForm.create({
         
         /**
          * Reloads the model.
+         * @param form This form.
+         * @param item Not in use.
+         * @param value The currently selected value.
          */
         change: function(form, item, value, oldValue) {
+            var lastId = value.id;
+            cookieUtil.setCookie(applicationComboForm.lastAccessedAppCookie, lastId, 365);
             appFunctions.createTabs(value);
         }
     }]

@@ -1,6 +1,7 @@
 <%@ page language="java" import="javax.servlet.http.Cookie"%>
+<%@ page language="java" import="com.consultinglimited.crm.CookieConstants"%>
 <%
-Cookie cookie = new Cookie ("lastAccessed", "workbench");
+Cookie cookie = new Cookie (CookieConstants.LAST_ACCESSED_PAGE, "workbench");
 cookie.setMaxAge(365 * 24 * 60 * 60);
 response.addCookie(cookie);
 %>
@@ -21,6 +22,9 @@ response.addCookie(cookie);
         <!-- -->
         </script>
         <script language="Javascript" type="text/javascript" src="js/string.js">
+        <!-- -->
+        </script>
+        <script language="Javascript" type="text/javascript" src="js/util/cookie.js">
         <!-- -->
         </script>
         <script language="Javascript" type="text/javascript" src="js/util/screenSize.js">

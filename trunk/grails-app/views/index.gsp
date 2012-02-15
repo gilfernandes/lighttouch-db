@@ -1,14 +1,15 @@
 <%@ page language="java" import="javax.servlet.http.Cookie"%>
+<%@ page language="java" import="com.consultinglimited.crm.CookieConstants"%>
+
 <%
 // This piece of code redirects the user to the last access page.
-String cookieName = "lastAccessed";
 Cookie[] cookies = request.getCookies();
 Cookie lastAccessCookie = null;
 if (cookies != null)
 {
     for (int i = 0; i < cookies.length; i++) 
     {
-        if (cookieName.equals(cookies [i].getName()))
+        if (CookieConstants.LAST_ACCESSED_PAGE.equals(cookies [i].getName()))
         {
             lastAccessCookie = cookies[i];
             break;

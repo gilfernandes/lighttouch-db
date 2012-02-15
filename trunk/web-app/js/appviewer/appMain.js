@@ -12,10 +12,16 @@ var appFunctions = {
      */
     displayApplication: function(response) {
         var dataObj = eval('(' + response.data + ')');
-        var title = "Workbench"
+        var title = "Workbench";
+        var selectedId;
         if(dataObj.defaultModule) {
             title = dataObj.defaultModule.name + " - " + title;
             selectedId = dataObj.defaultModule.id
+        }
+        // Use the cookie to select the right record.
+        var lastAccessedId = cookieUtil.getCookie(applicationComboForm.lastAccessedAppCookie);
+        if(lastAccessedId) {
+            selectedId = lastAccessedId;
         }
         titleLabel.setContentsTxt(title);
         document.title = title;
