@@ -28,6 +28,7 @@ grails s2-quickstart com.consultinglimited.crm.security SecUser SecRole
 grails install-plugin spring-security-ui
 
 grails create-controller com.consultinglimited.crm.security.secInfo
+grails create-controller com.consultinglimited.crm.realmInspector
 
 grails s2ui-override user com.consultinglimited.crm.security
 grails s2ui-override layout

@@ -179,4 +179,5 @@ public interface GenericDataService {
      *            else not.
      */
     public void setDefaultFields(boolean activate);
+
 }

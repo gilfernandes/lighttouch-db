@@ -508,6 +508,52 @@ isc.Menu.create({
     },
 
     /**
+     * Displays information about the structure of the generated tables
+     * as formatted JSON.
+     */
+    displayDbInfo: function() {
+        
+        var width = 500;
+        var displayDbInfoFormFields = [
+                          {name: "intro", type: "staticText", width: width, showTitle: false, 
+                              defaultValue: msgDbInfoDesc},
+                          {name: JSON_DISPLAY_AREA, type: "textArea", width: width, height: globals.jsonPopupDisplayHeight - 80, showTitle: false},
+                          {type: "button", title: "Done", click: "displayDbInfoModalWindow.hide();" }
+        ];
+        
+        isc.JsonForm.create({
+            ID: "displayDbInfoForm",
+            width: "100%",
+            height: "100%",
+            margin: 5,
+            fields: displayDbInfoFormFields
+        });
+        
+        isc.JsonFormWindow.create({
+            ID: "displayDbInfoModalWindow",
+            title: msgDbInfo,
+            items: [
+                displayDbInfoForm
+            ]
+        }).show();
+        
+        RPCManager.sendRequest({ 
+            httpMethod: "POST",
+            useSimpleHttp: true,
+            callback: function(data) {
+                var jsonStr = data.data;
+                var displayArea = displayDbInfoForm.getField(JSON_DISPLAY_AREA);
+                var result = jsonlint.parse(jsonStr);
+                if (result) {
+                    jsonStr = JSON.stringify(result, null, "    ");
+                    displayArea.setValue(jsonStr);
+                }
+            },
+            actionURL: "realmInspector"
+        });
+    },
+    
+    /**
      * Starts the JSON import.
      */
     startImportJson: function() {
@@ -779,7 +825,8 @@ isc.Menu.create({
     shadowDepth: 10,
     data: [
         {title: showJson, click: "fileMenu.persistFormDefinition(true)"},
-        {title: importJson, click: "fileMenu.startImportJson()"}
+        {title: importJson, click: "fileMenu.startImportJson()"},
+        {title: msgDbInfo, click: "fileMenu.displayDbInfo()"}
     ]
 });
 

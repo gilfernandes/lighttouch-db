@@ -24,6 +24,8 @@
             var importJson = "<g:message code="menu.importJson"/>";
             var showJson = "<g:message code="menu.showJson"/>";
             var msgCancel = "<g:message code="general.cancel"/>";
+            var msgDbInfo = "<g:message code="menu.dbInfo"/>";
+            var msgDbInfoDesc = "<g:message code="advancedMenu.displayDbInfoDesc"/>";
             var msgFile = "<g:message code="general.file"/>";
             var msgManager = "<g:message code="general.manager"/>";
             var msgNew = "<g:message code="general.new"/>";

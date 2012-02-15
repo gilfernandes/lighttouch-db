@@ -47,7 +47,7 @@ class CombinedDataForm {
      * Returns the identifier of the form definition.
      * @return the identifier of the form definition.
      */
-    public long getFormDefinitionId() {
+    public Long getFormDefinitionId() {
         return formDefinition?.getId();
     }
 
@@ -64,7 +64,7 @@ class CombinedDataForm {
      * @return the data model name.
      */
     public String getDataModelName() {
-        return dataModel.getName();
+        return dataModel?.getName();
     }
 
     /**
@@ -72,7 +72,7 @@ class CombinedDataForm {
      * @return the data model description.
      */
     public String getDataModelDescription() {
-        return dataModel.getDescription();
+        return dataModel?.getDescription();
     }
 
     /**
@@ -80,7 +80,7 @@ class CombinedDataForm {
      * @return the name of the table definition.
      */
     public String getTableDefinitionName() {
-        return tableDefinition.getName();
+        return tableDefinition?.getName();
     }
 
     /**
@@ -88,7 +88,7 @@ class CombinedDataForm {
      * @return the description of the table definition.
      */
     public String getTableDefinitionDescription() {
-        return tableDefinition.getDescription();
+        return tableDefinition?.getDescription();
     }
 
     /**
@@ -96,7 +96,7 @@ class CombinedDataForm {
      * @return the description of the table definition.
      */
     public String getTableDefinitionData() {
-        return tableDefinition.getTableData();
+        return tableDefinition?.getTableData();
     }
 
     /**
@@ -104,7 +104,7 @@ class CombinedDataForm {
      * @return the data model data.
      */
     public String getDataModelData() {
-        return dataModel.getModelData();
+        return dataModel?.getModelData();
     }
 
     /**
@@ -112,7 +112,7 @@ class CombinedDataForm {
      * @return the form definition name.
      */
     public String getFormDefinitionName() {
-        return formDefinition.getName();
+        return formDefinition?.getName();
     }
 
     /**
@@ -120,7 +120,7 @@ class CombinedDataForm {
      * @return the form definition name.
      */
     public String getFormDefinitionDescription() {
-        return formDefinition.getDescription();
+        return formDefinition?.getDescription();
     }
 
     /**
@@ -128,7 +128,7 @@ class CombinedDataForm {
      * @return the form definition data.
      */
     public String getFormDefinitionFormData() {
-        return formDefinition.getFormData();
+        return formDefinition?.getFormData();
     }
 
     /**
