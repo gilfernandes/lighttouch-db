@@ -278,7 +278,7 @@ Tree.create({
                     {name: tableFields.reorder, isFolder: false, active: field.Reorder, isBoolean: true},
                     {name: tableFields.filter, isFolder: false, active: field.Filter, isBoolean: true},
                     {name: tableFields.width, isFolder: false, active: field.Width != null, isBoolean: false, value: field.Width },
-                    {name: tableFields.textWidget, isFolder: false, active: false, isBoolean: true}
+                    {name: tableFields.textWidget, isFolder: false, active: field.TextArea, isBoolean: true}
                 ]
             }, tableModelTreeRoot);
     }
