@@ -337,11 +337,9 @@ isc.Menu.create({
             formNameLabel.setContents(currentForm.name + ' (' + currentForm.id + ')');
             tableModelNameLabel.setContents(currentTable.name + ' (' + currentTable.id + ')');
             openDefinitionDs.fetchOptionData(); // Refresh the options used to create references.
-            console.log("postSaveAction: " + postSaveAction);
             if(postSaveAction) {
                 switch(postSaveAction) {
                     case postSaveActions.OPEN_PREVIEW_FORM:
-                        console.log("Opening preview form ...");
                         previewOperations.openFormDefinition(currentForm.id);
                         break;
                 }
