@@ -72,7 +72,9 @@ public abstract class AbstractMongoService {
      */
     protected DBCollection fetchCollection(final DataModel model, final DB db) {
         final String modelName = fetchModelName(model);
-        LOG.error("model name: " + modelName);
+        if(LOG.isDebugEnabled()) {
+            LOG.debug("model name: " + modelName);
+        }
         final boolean collExists = db.collectionExists(modelName);
         DBCollection coll = null;
         if (!collExists) {

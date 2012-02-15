@@ -40,4 +40,7 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
       <property name="defaultFields" value="true" />
       <property name="host" value="127.0.0.1" />
    </bean>
+   
+   <bean id="inspectorService" class="com.consultinglimited.crm.service.impl.MongoRealmInspector">
+   </bean>
 </beans>
