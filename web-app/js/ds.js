@@ -2,6 +2,20 @@
 //isc.showConsole()
 
 /**
+ * The fields used in the table tree.
+ */
+var tableFields = {
+    visible: "Visible",
+    sort: "Sort",
+    editable: "Editable",
+    group: "Group",
+    reorder: "Reorder",
+    filter: "Filter",
+    width: "Width",
+    textWidget: "TextArea"
+}
+
+/**
  * The data source used to contain the data of the form created by the user.
  */
 isc.DataSource.create({
@@ -88,7 +102,7 @@ isc.DataSource.create({
                 dataModelRecord = { id: 1, "title": title, "type": type};
                 dataModelGrid.setData([dataModelRecord])
                 updatedRecord.dataModelForeignKey = dataModelRecord.id;
-                this.createTableModelEntry(updatedRecord.title, updatedRecord.dataModelForeignKey);
+                this.createTableModelEntry(updatedRecord.title, updatedRecord.dataModelForeignKey, type);
             }
             else {
                 if(droppedFromTools) { 
@@ -96,7 +110,7 @@ isc.DataSource.create({
                     dataModelRecord = this.createDataEntry(title, type);
                     updatedRecord.dataModelForeignKey = dataModelRecord.id;
                     if(dataModelRecord.type != dataType.staticText) { 
-                        this.createTableModelEntry(updatedRecord.title, updatedRecord.dataModelForeignKey);
+                        this.createTableModelEntry(updatedRecord.title, updatedRecord.dataModelForeignKey, type);
                     }
                 }
                 else { // dropped from the data types.
@@ -118,7 +132,7 @@ isc.DataSource.create({
                         updatedRecord.dataModelForeignKey = dataRecordId;
                         // If necessary re-construct the table entries.
                         if(formComposerList.dropRecord.type != dataType.staticText) {
-                            this.createTableModelEntry(updatedRecord.title, dataRecordId);
+                            this.createTableModelEntry(updatedRecord.title, dataRecordId, type);
                         }
                     }
                 }
@@ -141,19 +155,22 @@ isc.DataSource.create({
     
     /**
      * Creates an entry in the table model tree.
+     * 
      * @param title The title of the record.
+     * @param type The data type.
      */
-    createTableModelEntry: function(title, dataModelForeignKey) {
+    createTableModelEntry: function(title, dataModelForeignKey, type) {
         var newId = tableModelTree.generateId();
         var parentNode = tableModelTree.add(
             {name: title, isFolder: true, active: null, id: newId, dataModelForeignKey: dataModelForeignKey, children:[
-                    {name: "Visible", isFolder: false, active: true, isBoolean: true},
-                    {name: "Sort", isFolder: false, active: true, isBoolean: true},
-                    {name: "Editable", isFolder: false, active: false, isBoolean: true}, // per default this is not editable on the table.
+                    {name: tableFields.visible, isFolder: false, active: true, isBoolean: true},
+                    {name: tableFields.sort, isFolder: false, active: true, isBoolean: true},
+                    {name: tableFields.editable, isFolder: false, active: false, isBoolean: true}, // per default this is not editable on the table.
 //                    {name: "Group", isFolder: false, active: true, isBoolean: true},
-                    {name: "Reorder", isFolder: false, active: true, isBoolean: true},
-                    {name: "Filter", isFolder: false, active: true, isBoolean: true},
-                    {name: "Width", isFolder: false, active: false, isBoolean: false}
+                    {name: tableFields.reorder, isFolder: false, active: true, isBoolean: true},
+                    {name: tableFields.filter, isFolder: false, active: true, isBoolean: true},
+                    {name: tableFields.width, isFolder: false, active: false, isBoolean: false},
+                    {name: tableFields.textWidget, isFolder: false, active: false, isBoolean: true, enabled: type == dataType.text}
                 ]
             }, tableModelTreeRoot);
     }
@@ -255,12 +272,13 @@ Tree.create({
         var newId = field.id;
         var parentNode = tableModelTree.add(
             {name: field.name, isFolder: true, active: null, id: newId, dataModelForeignKey: field.dataModelForeignKey, children:[
-                    {name: "Visible", isFolder: false, active: field.Visible, isBoolean: true},
-                    {name: "Sort", isFolder: false, active: field.Sort, isBoolean: true},
-                    {name: "Editable", isFolder: false, active: field.Editable, isBoolean: true},
-                    {name: "Reorder", isFolder: false, active: field.Reorder, isBoolean: true},
-                    {name: "Filter", isFolder: false, active: field.Filter, isBoolean: true},
-                    {name: "Width", isFolder: false, active: field.Width != null, isBoolean: false, value: field.Width }
+                    {name: tableFields.visible, isFolder: false, active: field.Visible, isBoolean: true},
+                    {name: tableFields.sort, isFolder: false, active: field.Sort, isBoolean: true},
+                    {name: tableFields.editable, isFolder: false, active: field.Editable, isBoolean: true},
+                    {name: tableFields.reorder, isFolder: false, active: field.Reorder, isBoolean: true},
+                    {name: tableFields.filter, isFolder: false, active: field.Filter, isBoolean: true},
+                    {name: tableFields.width, isFolder: false, active: field.Width != null, isBoolean: false, value: field.Width },
+                    {name: tableFields.textWidget, isFolder: false, active: false, isBoolean: true}
                 ]
             }, tableModelTreeRoot);
     }

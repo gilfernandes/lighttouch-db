@@ -80,7 +80,8 @@ isc.defineClass("DsOperator", "DsOperatorBase").addProperties(
                         var fieldProps = {name: field.id + '_' + field.title, title: curField.title, 
                             type: field.type == "int" ? "integer" : (field.type == "double" ? "float" : field.type) };
                         // if the max length of the data type is very big, then we use the text area for editing.
-                        if(field.maxlength > 255) {
+                        if((field.maxlength > 255 && field.type == dataType.text) 
+                            || (field.type == dataType.text && curField.TextArea)) {
                             fieldProps.editorType = "TextAreaItem";
                         }
                         var canFilter = curField.Filter;
