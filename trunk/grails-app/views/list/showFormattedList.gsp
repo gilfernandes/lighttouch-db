@@ -43,7 +43,7 @@
         <script language="Javascript" type="text/javascript" src="<%=request.getContextPath() %>/js/list/tableCommon.js">
         <!-- -->
         </script>
-        <script language="Javascript" type="text/javascript" src="<%=request.getContextPath() %>/js/list/deleteButtonBar.js">
+        <script language="Javascript" type="text/javascript" src="<%=request.getContextPath() %>/js/list/buttonBar.js">
         <!-- -->
         </script>
         <script language="Javascript" type="text/javascript" src="<%=request.getContextPath() %>/js/list/tableLayout.js">
