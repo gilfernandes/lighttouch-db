@@ -42,6 +42,9 @@ response.addCookie(cookie);
         <script language="Javascript" type="text/javascript" src="js/components/DeleteButton.js">
         <!-- -->
         </script>
+        <script language="Javascript" type="text/javascript" src="js/components/SaveButton.js">
+        <!-- -->
+        </script>
         <script language="Javascript" type="text/javascript" src="js/components/TableButton.js">
         <!-- -->
         </script>
@@ -87,7 +90,7 @@ response.addCookie(cookie);
         <script language="Javascript" type="text/javascript" src="<%=request.getContextPath() %>/js/list/genericFormattedTableGenerator.js">
         <!-- -->
         </script>
-        <script language="Javascript" type="text/javascript" src="<%=request.getContextPath() %>/js/list/deleteButtonBar.js">
+        <script language="Javascript" type="text/javascript" src="<%=request.getContextPath() %>/js/list/buttonBar.js">
         <!-- -->
         </script>
         <script language="Javascript" type="text/javascript" src="<%=request.getContextPath() %>/js/appviewer/appMainToolStrip.js">
