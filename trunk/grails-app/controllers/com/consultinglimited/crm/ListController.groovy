@@ -160,9 +160,9 @@ class ListController {
         // Inject some extra information about the data model and the views.
         def tableDefs = TableDefinition.findByDataModel(dataModelInstance);
         if(tableDefs && tableDefs instanceof TableDefinition) {
-            output = output.replaceFirst("totalRows", '"tableDefId":' + tableDefs.id + ', totalRows')
+            output = output.replaceFirst("\"totalRows\"", '"tableDefId":' + tableDefs.id + ', \"totalRows\"')
         }
-        output = output.replaceFirst("totalRows", '"dataModelName":"' + ListWriter.replaceLineBreak(dataModelInstance.name) + '", totalRows')
+        output = output.replaceFirst("\"totalRows\"", '"dataModelName":"' + dataModelInstance.name + '", \"totalRows\"')
         return output;
     }
 

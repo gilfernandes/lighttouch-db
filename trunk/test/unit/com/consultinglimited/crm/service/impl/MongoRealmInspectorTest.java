@@ -35,9 +35,14 @@ public class MongoRealmInspectorTest {
      */
     @Test
     public void testGetTableDescription() {
-        final Map<String, Collection<String>> res = realmInspector
-                .getTableDescription("common");
-        System.out.println(res);
+
+        final Collection<String> dbs = realmInspector.getDbs();
+        for (final String db : dbs) {
+            System.out.println(db);
+            final Map<String, Collection<String>> res = realmInspector
+                    .getTableDescription(db);
+            System.out.println(res);
+        }
     }
 
 }

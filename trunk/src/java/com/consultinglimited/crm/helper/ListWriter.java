@@ -50,14 +50,14 @@ public class ListWriter {
             final long startRow, final long endRow, final long total) {
         final StringWriter stringWriter = new StringWriter();
         final PrintWriter writer = new PrintWriter(stringWriter);
-        writer.println("{response:{");
-        writer.printf("totalRows:%d,", total);
-        writer.printf("startRow:%d,", startRow);
-        writer.printf("endRow:%d,", endRow);
-        writer.printf("status:%d,", 0);
-        writer.printf("queueStatus:%d,", 0);
-        writer.printf("isDSResponse:%s,", true);
-        writer.printf("invalidateCache:%s},", false);
+        writer.println("{\"response\":{");
+        writer.printf("\"totalRows\":%d,", total);
+        writer.printf("\"startRow\":%d,", startRow);
+        writer.printf("\"endRow\":%d,", endRow);
+        writer.printf("\"status\":%d,", 0);
+        writer.printf("\"queueStatus\":%d,", 0);
+        writer.printf("\"isDSResponse\":%s,", true);
+        writer.printf("\"invalidateCache\":%s},", false);
         writer.println("    \"rows\": [");
         final StringBuilder builder = new StringBuilder();
         for (final Map<String, Object> map : resultSet) {
@@ -132,6 +132,7 @@ public class ListWriter {
      * @return the JSON compatible services.
      */
     public static String replaceLineBreak(final String origStr) {
-        return origStr.replaceAll("\r?\n", "\\\\n").replace("\"", "\\\"");
+        return origStr.replaceAll("\r?\n", "\\\\n").replace("\r", "\\n")
+                .replace("\"", "\\\"");
     }
 }

@@ -62,4 +62,13 @@ public class MongoRealmInspector extends AbstractMongoService implements
         }
         return map;
     }
+
+    /**
+     * Returns the databases in this Mongo instance.
+     * 
+     * @return the databases in this Mongo instance.
+     */
+    public Collection<String> getDbs() {
+        return mongo.getDatabaseNames();
+    }
 }
