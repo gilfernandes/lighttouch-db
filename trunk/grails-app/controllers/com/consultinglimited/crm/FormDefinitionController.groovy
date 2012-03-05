@@ -295,7 +295,7 @@ class FormDefinitionController {
         catch(Exception e) {
             log.error("Could not deploy model.", e);
             StatusResponse response = new StatusResponse(status: ErrorCode.DM_DEPLOY_FAIL.getCode(),
-                    msg: ErrorCode.DM_DEPLOY_FAIL.getMessage(), object: dataModelInstance, errors: []);
+                    msg: ErrorCode.DM_DEPLOY_FAIL.getMessage(), object: combined, errors: []);
             render response as JSON
         }
     }
