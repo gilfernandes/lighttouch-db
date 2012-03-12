@@ -20,6 +20,9 @@
         <script language="Javascript" type="text/javascript" src="<%=request.getContextPath() %>/js/components/ReferenceDSFactory.js">
         <!-- -->
         </script>
+        <script language="Javascript" type="text/javascript" src="<%=request.getContextPath() %>/js/components/SaveButton.js">
+        <!-- -->
+        </script>
         <script language="Javascript" type="text/javascript" src="<%=request.getContextPath() %>/js/components/DsOperatorBase.js">
         <!-- -->
         </script>
