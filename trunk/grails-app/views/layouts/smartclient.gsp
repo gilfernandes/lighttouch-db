@@ -30,6 +30,7 @@
             var msgManager = "<g:message code="general.manager"/>";
             var msgNew = "<g:message code="general.new"/>";
             var msgOpen = "<g:message code="general.open"/>";
+            var msgRefresh = "<g:message code="general.refresh"/>";
             var msgSave = "<g:message code="general.save"/>";
             var msgSaveAs = "<g:message code="general.saveAs"/>";
             var msgSelectRecord = "<g:message code="general.selectRecord"/>";

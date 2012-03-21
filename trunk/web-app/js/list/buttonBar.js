@@ -119,6 +119,24 @@ var deleteButtonFactory = {
     },
     
     /**
+     * Creates a refresh data button.
+     * @param generatedTable The table upon with the records which are to be refreshed.
+     * @param tableDefId The table definition identifier.
+     */
+    createRefreshDataButton: function(generatedTable, tableDefId) {
+        
+        /**
+         * Button used to save all edits on the table.
+         */
+        return isc.RefreshButton.create({
+            click: function() {
+                generatedTable.saveAllEdits();
+                tableUtil.refreshTable(generatedTable);
+            }
+        });
+    },
+    
+    /**
      * Creates a button bar with the delete buttons.
      */
     createButtonBar: function(deleteActionUrl, truncateActionUrl, generatedTable, tableOrModelId) {
@@ -131,6 +149,8 @@ var deleteButtonFactory = {
             members: [
                       isc.Canvas.create({width: "*"}),
                       deleteButtonFactory.createSaveDataButton(generatedTable, tableOrModelId),
+                      isc.Canvas.create({width: "10"}),
+                      deleteButtonFactory.createRefreshDataButton(generatedTable, tableOrModelId),
                       isc.Canvas.create({width: "10"}),
                       deleteButtonFactory.createDeleteDataButton(deleteActionUrl, generatedTable, tableOrModelId),
                       isc.Canvas.create({width: "10"}),
