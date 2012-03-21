@@ -59,6 +59,9 @@ var appFunctions = {
         for(var i = 0, l = moduleData.models.length; i < l; i++) {
             var model = moduleData.models[i];
             // Create the section stack on the left side with the available views.
+            var hoverFunc = function (record, value, rowNum, colNum, grid) {
+                return "<span style='white-space: nowrap'><b>" + record.id + "</b> - " + record.name + " - " + record.type + "</span>";
+            };
             var viewTable = isc.ListGrid.create({
                 height: globals.formComposerListHeight,
                 autoDraw:false,
@@ -68,9 +71,17 @@ var appFunctions = {
                 editEvent:"click",
                 modelId: model.id,
                 fields:[
-                    {name:"id", title:"ID", width: "15%"},
-                    {name:"name", title:"Name", width: "65%"},
-                    {name:"type", title:"Type", width: "25%"}
+                    {name:"name", title:"Name", width: "75%", canHover: true, showHover: true, hoverHTML: hoverFunc},
+                    {name:"type", align: "center", 
+                        title:"Type", width: "25%",
+                        canHover: true, showHover: true,
+                        hoverHTML: hoverFunc, 
+                        formatCellValue: function(value, record, rowNum, colNum, grid) {
+                            var imgFolder = "smartclient8/js/isomorphic/skins/Enterprise/images/DynamicForm/";
+                            var imgSrc = value == "table" ? imgFolder + "date_control.png" : imgFolder + "text_control.gif";
+                            return '<img src="' + imgSrc + '" />';
+                        }
+                    }
                 ],
                 recordClick: appFunctions.activateView
             });

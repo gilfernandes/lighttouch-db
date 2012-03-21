@@ -45,6 +45,9 @@ response.addCookie(cookie);
         <script language="Javascript" type="text/javascript" src="js/components/SaveButton.js">
         <!-- -->
         </script>
+        <script language="Javascript" type="text/javascript" src="js/components/RefreshButton.js">
+        <!-- -->
+        </script>
         <script language="Javascript" type="text/javascript" src="js/components/TableButton.js">
         <!-- -->
         </script>
